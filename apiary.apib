@@ -1,0 +1,177 @@
+FORMAT: 1A
+HOST: https://api.vhmml.org/v1
+
+# vHMML API
+
+vHMML API is a simple API allowing users to view vHMML system metadata.
+
+## vHMML Reading Room Countries [/readingRoom/countries/]
+
+Get a paginated list of the countries or a specific country used in vHMML.
+
+### All Countries [GET /readingRoom/countries/]
+
++ Response 200 (application/json)
+
+        [
+            {
+                "id": 47,
+                "name": "Lebanon",
+                "authority_uri_lc": "http://id.loc.gov/authorities/names/n79090014",
+                "authority_uri_viaf": "https://viaf.org/viaf/127773968",
+            },
+            {
+                "id": 56,
+                "name": "Iraq",
+                "authority_uri_lc": "http://id.loc.gov/authorities/names/n79077342",
+                "authority_uri_viaf": "https://viaf.org/viaf/147734579",
+            }
+        ]
+        
+### Specific Country [GET /readingRoom/countries/{id}] 
+
++ Parameters
+    + id (number) - ID of the Country in the form of an integer
+
++ Response 200 (application/json)
+
+        [
+            {
+                "id": 47,
+                "name": "Lebanon",
+                "authority_uri_lc": "http://id.loc.gov/authorities/names/n79090014",
+                "authority_uri_viaf": "https://viaf.org/viaf/127773968",
+            }
+        ]
+        
+## vHMML Reading Room Cities [/readingRoom/cities/]
+
+Get a paginated list of the cities or a specific city used in vHMML.
+
+### All Cities [GET /readingRoom/cities/]
+
++ Response 200 (application/json)
+
+        [
+            {
+                "id": 856,
+                "name": "Valletta",
+                "authority_uri_lc": "http://id.loc.gov/authorities/names/n81103153",
+                "authority_uri_viaf": "https://viaf.org/viaf/133703152",
+                "country_id": 50
+            },
+            {
+                "id": 882,
+                "name": "Baghdad",
+                "authority_uri_lc": "http://id.loc.gov/authorities/names/n80006292",
+                "authority_uri_viaf": "https://viaf.org/viaf/125482894",
+                "country_id": 56
+            },
+            {
+                "id": 876,
+                "name": "Kūsbā",
+                "authority_uri_lc": "",
+                "authority_uri_viaf": "",
+                "country_id": 47
+            }
+        ]
+        
+### Specific City [GET /readingRoom/cities/{id}] 
+
++ Parameters
+    + id (number) - ID of the City in the form of an integer
+
++ Response 200 (application/json)
+
+        [
+            {
+                "id": 856,
+                "name": "Valletta",
+                "authority_uri_lc": "http://id.loc.gov/authorities/names/n81103153",
+                "authority_uri_viaf": "https://viaf.org/viaf/133703152",
+                "country_id": 50
+            }
+        ]
+        
+### Cities for a Country [GET /readingRoom/cities?{country_id}=] 
+
++ Parameters
+    + country_id (number) - ID of the Country in the form of an integer
+
++ Response 200 (application/json)
+
+        [
+            {
+                "id": 856,
+                "name": "Valletta",
+                "authority_uri_lc": "http://id.loc.gov/authorities/names/n81103153",
+                "authority_uri_viaf": "https://viaf.org/viaf/133703152",
+                "country_id": 50
+            }
+        ]
+       
+## vHMML Reading Room Repositories [/readingRoom/repositories/]
+
+Get a paginated list of the repositories or a specific repository used in vHMML.
+
+### All Cities [GET /readingRoom/repositories/]
+
++ Response 200 (application/json)
+
+        [
+            {
+                "id": 196,
+                "name": "Real Academia de la Historia. Biblioteca",
+                "authority_uri_lc": "http://id.loc.gov/authorities/names/n81124949",
+                "authority_uri_viaf": "https://viaf.org/viaf/122074788",
+                "city_id": 902
+            },
+            {
+                "id": 118,
+                "name": "Université Saint-Joseph. Bibliothèque orientale",
+                "authority_uri_lc": "http://id.loc.gov/authorities/names/no2002041068",
+                "authority_uri_viaf": "https://viaf.org/viaf/126471052",
+                "city_id": 861
+            },
+            {
+                "id": 110,
+                "name": "Armenian Patriarchate of Istanbul",
+                "authority_uri_lc": "",
+                "authority_uri_viaf": "https://viaf.org/viaf/136066570",
+                "city_id": 854
+            }
+        ]
+        
+### Specific Repository [GET /readingRoom/repositories/{id}] 
+
++ Parameters
+    + id (number) - ID of the Repository in the form of an integer
+
++ Response 200 (application/json)
+
+        [
+            {
+                "id": 196,
+                "name": "Real Academia de la Historia. Biblioteca",
+                "authority_uri_lc": "http://id.loc.gov/authorities/names/n81124949",
+                "authority_uri_viaf": "https://viaf.org/viaf/122074788",
+                "city_id": 902
+            }
+        ]
+        
+### Repositories for a City [GET /readingRoom/repositories?{city_id}=] 
+
++ Parameters
+    + city_id (number) - ID of the City in the form of an integer
+
++ Response 200 (application/json)
+
+        [
+            {
+                "id": 118,
+                "name": "Université Saint-Joseph. Bibliothèque orientale",
+                "authority_uri_lc": "http://id.loc.gov/authorities/names/no2002041068",
+                "authority_uri_viaf": "https://viaf.org/viaf/126471052",
+                "city_id": 861
+            }
+        ]
