@@ -175,3 +175,76 @@ Get a paginated list of the repositories or a specific repository used in vHMML.
                 "city_id": 861
             }
         ]
+       
+## vHMML Reading Room Objects [/readingRoom/objects/]
+
+Get a paginated list of the objects or a specific object in vHMML.
+
+### All Objects [GET /readingRoom/objects/]
+
++ Response 200 (application/json)
+
+        [
+            {
+                "id": 196,
+                "name": "Real Academia de la Historia. Biblioteca",
+                "authority_uri_lc": "http://id.loc.gov/authorities/names/n81124949",
+                "authority_uri_viaf": "https://viaf.org/viaf/122074788",
+                "city_id": 902
+            },
+            {
+                "id": 118,
+                "name": "Université Saint-Joseph. Bibliothèque orientale",
+                "authority_uri_lc": "http://id.loc.gov/authorities/names/no2002041068",
+                "authority_uri_viaf": "https://viaf.org/viaf/126471052",
+                "city_id": 861
+            },
+            {
+                "id": 110,
+                "name": "Armenian Patriarchate of Istanbul",
+                "authority_uri_lc": "",
+                "authority_uri_viaf": "https://viaf.org/viaf/136066570",
+                "city_id": 854
+            }
+        ]
+        
+### Specific Object [GET /readingRoom/objects/{id}] 
+
++ Parameters
+    + id (number) - ID of the Object in the form of an integer
+
++ Response 200 (application/json)
+
+        [
+            {
+                "id": 196,
+                "name": "Real Academia de la Historia. Biblioteca",
+                "authority_uri_lc": "http://id.loc.gov/authorities/names/n81124949",
+                "authority_uri_viaf": "https://viaf.org/viaf/122074788",
+                "city_id": 902
+            }
+        ]
+        
+### Objects (Parameters) [GET /readingRoom/repositories?{country_id}=&{city_id}=&{city_id}=&{repository_id}=&{keyword}=&{name}=&{title}=&{lang}=&{type}=] 
+
++ Parameters
+    + country_id (number) - ID of the Country in the form of an integer
+    + city_id (number) - ID of the City in the form of an integer
+    + repository_id (number) - ID of the Repository in the form of an integer
+    + keyword (string) - Keyword to search all vHMML fields in the form of a string
+    + name (string) - Name to search vHMML *Author Display Name*, *Scribe*, *Associated Names*, *Associated Names Display* in the form of a string
+    + title (string) - Title to search vHMML *Title*, *Alternate Title*, *Contents Detail*, *Uniform Title* in the form of a string
+    + lang (string) - Language to search vHMML *Languages* in the form of a string
+    + type (string) - Type of Record. Values: **M (Manuscript)**, **P (Print)**, **A (Archival)**, **MP (Manuscript & Print)**, **NS (Not Specified)** 
+
++ Response 200 (application/json)
+
+        [
+            {
+                "id": 118,
+                "name": "Université Saint-Joseph. Bibliothèque orientale",
+                "authority_uri_lc": "http://id.loc.gov/authorities/names/no2002041068",
+                "authority_uri_viaf": "https://viaf.org/viaf/126471052",
+                "city_id": 861
+            }
+        ]
